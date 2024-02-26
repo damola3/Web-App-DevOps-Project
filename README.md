@@ -14,7 +14,8 @@ Welcome to the Web App DevOps Project repo! This application allows you to effic
 
 - **Order List:** View a comprehensive list of orders including details like date UUID, user ID, card number, store code, product code, product quantity, order date, and shipping date.
   
-![Screenshot 2023-08-31 at 15 48 48](https://github.com/maya-a-iuga/Web-App-DevOps-Project/assets/104773240/3a3bae88-9224-4755-bf62-567beb7bf692)
+![image](https://github.com/damola3/Web-App-DevOps-Project/assets/108272971/130abb5c-47b0-48e5-9f98-cf88de0544b9)
+
 
 - **Pagination:** Easily navigate through multiple pages of orders using the built-in pagination feature.
   
@@ -22,7 +23,8 @@ Welcome to the Web App DevOps Project repo! This application allows you to effic
 
 - **Add New Order:** Fill out a user-friendly form to add new orders to the system with necessary information.
   
-![Screenshot 2023-08-31 at 15 49 26](https://github.com/maya-a-iuga/Web-App-DevOps-Project/assets/104773240/83236d79-6212-4fc3-afa3-3cee88354b1a)
+![image](https://github.com/damola3/Web-App-DevOps-Project/assets/108272971/20eb8e6a-540a-431d-873a-6564d04421dd)
+
 
 - **Data Validation:** Ensure data accuracy and completeness with required fields, date restrictions, and card number validation.
 
