@@ -9,6 +9,7 @@ Welcome to the Web App DevOps Project repo! This application allows you to effic
 - [Technology Stack](#technology-stack)
 - [Contributors](#contributors)
 - [License](#license)
+- [Technology Stack](#Technology Stack)
 
 ## Features
 
@@ -55,9 +56,71 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 - **Database:** The application employs an Azure SQL Database as its database system to store order-related data.
 
+
+## Technology Stack
+
+### <ins>Docker<ins>
+
+**DockerFile**:
+
+    FROM - python 3.8-slim as parent image
+
+    WORKDIR - /app as container working directory
+
+    RUN - Installed system dependencies, OBDC driver & installed python package requirements.txt for the app
+
+    EXPOSE 5000 (port)
+
+    CMD - Run app.py on startup
+
+
+**Build Process** -
+    
+    docker build -t pipeapp:1.0
+
+
+**Running the Container** -
+    
+    docker run -it -p 5000:5000 pipeapp:1.0
+
+
+**Tagging the Container** -
+    
+    docker tag 85d59c651687 Dockerhubname/pipeapp:1.0
+
+
+**Pushing Container** -
+    
+    docker push Dockerhubname/pipeapp:1.0
+
+
+### <ins>Terraform<ins>
+**Resources Provisioned**: <ins>Note:<ins>
+ Inputs and Outputs are documented in their respective files.
+- **Networking Module:**
+    - Resource Group: - Container for networking resources
+        - Kube API Server Rule - Allows inbound connections from public IP
+        - SSH Rule - Allows inbound connections from Public IP
+
+
+    - Virtual Network: Allows for resources to share the same private network namespace
+        - Control Plane Subnet - Private address space for control nodes of AKS cluser
+        - Worker Node Subnet - Private address space for worker nodes of AKS cluser
+
+
+- **AKS Module:**
+    - Resource Group: - Refers to Resource Group created in earlier modules
+
+    - AKS: Azure Kubernetes Cluster
+        - Node Pool - Configuration instructions for AKS nodes. (Autoscaling is enabled)
+        - Tags - Optional tag(s) for cluster
+        - Service Principle - Verification details for Azure
+
+
 ## Contributors 
 
 - [Maya Iuga]([https://github.com/yourusername](https://github.com/maya-a-iuga))
+
 
 ## License
 
