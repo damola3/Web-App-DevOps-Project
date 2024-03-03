@@ -104,15 +104,16 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 
     - Virtual Network: Allows for resources to share the same private network namespace
-        - Control Plane Subnet - Private address space for control nodes of AKS cluser
-        - Worker Node Subnet - Private address space for worker nodes of AKS cluser
+        - Control Plane Subnet - Private address space for control nodes of AKS cluster
+        - Worker Node Subnet - Private address space for worker nodes of AKS cluster
 
 
 - **AKS Module:**
     - Resource Group: - Refers to Resource Group created in earlier modules
 
     - AKS: Azure Kubernetes Cluster
-        - Node Pool - Configuration instructions for AKS nodes. (Autoscaling is enabled)
+        - Network_plugin - Set networking configuration, including the CIDR for service pods and an IP within this range for kube-dns
+        - Node Pool - Configuration instructions for AKS nodes. (Autoscaling is enabled by default)
         - Tags - Optional tag(s) for cluster
         - Service Principle - Verification details for Azure
 
