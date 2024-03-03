@@ -1,0 +1,13 @@
+aks-terraform/aks-cluster-module/.terraform.lock.hcl
+aks-terraform/networking-module/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.93.0/linux_amd64/terraform-provider-azurerm_v3.93.0_x5
+aks-terraform/networking-module/.terraform.lock.hcl
+aks-terraform/aks-cluster-module/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.93.0/linux_amd64/terraform-provider-azurerm_v3.93.0_x5
+aks-terraform/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.94.0/linux_amd64/terraform-provider-azurerm_v3.94.0_x5
+aks-terraform/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.0.0/linux_amd64/terraform-provider-azurerm_v3.0.0_x5
+aks-terraform/terraform.tfstate.backup
+aks-terraform/terraform.tfstate
+aks-terraform/plan.tfplan
+aks-terraform/.terraform.lock.hcl
+dockerfile:Zone.Identifier
+aks-terraform/test.tfvars
+aks-terraform/aks-cluster-module/.terraform
