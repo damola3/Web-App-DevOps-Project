@@ -8,11 +8,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
   network_profile {
     network_plugin = "azure"
-
-  }
-
-  ingress_application_gateway {
-  subnet_id = var.worker_node_subnet_id
+    service_cidr = "10.0.0.0/24"
+    dns_service_ip = "10.0.0.2"
   }
 
   default_node_pool {
@@ -23,15 +20,15 @@ resource "azurerm_kubernetes_cluster" "aks" {
     min_count = 1
     max_count = 3
     pod_subnet_id = var.control_plane_subnet_id
+    vnet_subnet_id = var.worker_node_subnet_id
   }
 
-  tags = {
+      tags = {
     Environment = "Production"
-  
   }
-    service_principal {
+
+  service_principal {
     client_id     = var.service_principal_client_id
     client_secret = var.service_principal_client_secret
-    }
-
+  }
 }

@@ -14,8 +14,10 @@ resource "azurerm_network_security_group" "nsg1" {
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
+    source_port_range          = "*"
     destination_port_range     = "443"
     source_address_prefix      = var.source_pref
+    destination_address_prefix = "*"
   }
    security_rule {
     name                       = "ssh-rule"
@@ -23,8 +25,10 @@ resource "azurerm_network_security_group" "nsg1" {
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
+    source_port_range          = "*"
     destination_port_range     = "22"
     source_address_prefix      = var.source_pref
+    destination_address_prefix = "*"
   }
 }
 
@@ -51,13 +55,4 @@ resource "azurerm_subnet" "wns" {
   resource_group_name  = azurerm_resource_group.rg1.name
   virtual_network_name = azurerm_virtual_network.vn1.name
   address_prefixes     = ["10.0.2.0/24"]
-
-  delegation {
-    name = "delegation"
-
-    service_delegation {
-      name    = "Microsoft.ContainerService/managedClusters"
-      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
-    }
-  }
 }
