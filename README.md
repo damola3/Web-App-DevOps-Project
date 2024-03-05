@@ -117,11 +117,11 @@ The containerised application built in Docker is packed with a Cluster IP config
 
 <ins>**For deployment, the following are recommended:**<ins>
 
-- **Nodeport -** This allows connections to individual nodes, via private and/or public networks, of which traffic can then be redirected to any desired endpoint, to be dsitributed by the service configuration or by a custom load balancing solution. For example, a Robin Hood style configuration can be used to share load balancing service compute amongst nodes.  
+- **Nodeport -** This allows connections to individual nodes, via private and/or public networks, of which traffic can then be redirected to any desired endpoint, to be distributed by the service configuration or by a custom load balancing solution. For example, a Robin Hood style configuration can be used to share load balancing service compute amongst nodes.  
 
-  Nodeport can be very useful in testing deployments locally. Given that the 30000-32767 ranges are not standard for web traffic, though can make it inapproprate for any deployment across the public internet, given firewalls typically block traffic from these ports.
+  Nodeport can be very useful in testing deployments locally. However, it isn't particularly optimal deployments across the deiverse, as firewalls typically block traffic from these ports, given that the 30000-32767 ranges are not standard for web traffic.
 
-- **Load Balancer** - In this recommended configuration, an individual IP is used as a gateway to expose application services to connections which satisfy any given network configuration.
+- **Load Balancer** - In this recommended configuration, an individual IP is used as a gateway to expose application services to connections which satisfy a given network configuration.
 
 - **Ingress -** An ingress would be most useful for mutualising hosting, in case there is a desire to integrate routing and load balancing resources with other internal applications.
 
