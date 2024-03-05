@@ -9,7 +9,6 @@ Welcome to the Web App DevOps Project repo! This application allows you to effic
 - [Technology Stack](#technology-stack)
 - [Contributors](#contributors)
 - [License](#license)
-- [Technology Stack](#Technology Stack)
 
 ## Features
 
@@ -56,9 +55,6 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 - **Database:** The application employs an Azure SQL Database as its database system to store order-related data.
 
-
-## Technology Stack
-
 ### <ins>Docker<ins>
 
 **DockerFile**:
@@ -99,8 +95,8 @@ To run the application, you simply need to run the `app.py` script in this repos
  Inputs and Outputs are documented in their respective files.
 - **Networking Module:**
     - Resource Group: - Container for networking resources
-        - Kube API Server Rule - Allows inbound connections from public IP
-        - SSH Rule - Allows inbound connections from Public IP
+        - Kube API Server Rule (Port 443) - Allows inbound connections from public IP
+        - SSH Rule (Port 22) - Allows inbound connections from Public IP
 
 
     - Virtual Network: Allows for resources to share the same private network namespace
@@ -116,10 +112,24 @@ To run the application, you simply need to run the `app.py` script in this repos
         - Tags - Optional tag(s) for cluster
         - Service Principle - Verification details for Azure
 
+### <ins>Kubernetes Manifests Deployment<ins>
+The containerised application built in Docker is packed with a Cluster IP configuration, with port 5000 exposed in order to test and validate its deployment.
+
+<ins>**For deployment, the following are recommended:**<ins>
+
+- **Nodeport -** This allows connections to individual nodes, via private and/or public networks, of which traffic can then be redirected to any desired endpoint, to be dsitributed by the service configuration or by a custom load balancing solution. For example, a Robin Hood style configuration can be used to share load balancing service compute amongst nodes.  
+
+  Nodeport can be very useful in testing deployments locally. Given that the 30000-32767 ranges are not standard for web traffic, though can make it inapproprate for any deployment across the public internet, given firewalls typically block traffic from these ports.
+
+- **Load Balancer** - In this recommended configuration, an individual IP is used as a gateway to expose application services to connections which satisfy any given network configuration.
+
+- **Ingress -** An ingress would be most useful for mutualising hosting, in case there is a desire to integrate routing and load balancing resources with other internal applications.
+
 
 ## Contributors 
 
 - [Maya Iuga]([https://github.com/yourusername](https://github.com/maya-a-iuga))
+- [Ayo Aroyehun]([https://github.com/yourusername](https://github.com/damola3))
 
 
 ## License
