@@ -22,9 +22,8 @@ Welcome to the Web App DevOps Project repo! This application allows you to effic
 ![Screenshot 2023-08-31 at 15 49 08](https://github.com/maya-a-iuga/Web-App-DevOps-Project/assets/104773240/d92a045d-b568-4695-b2b9-986874b4ed5a)
 
 - **Add New Order:** Fill out a user-friendly form to add new orders to the system with necessary information.
-  
-![image](https://github.com/damola3/Web-App-DevOps-Project/assets/108272971/20eb8e6a-540a-431d-873a-6564d04421dd)
 
+  ![image](https://github.com/damola3/Web-App-DevOps-Project/assets/108272971/07d1516f-eec2-4567-a03b-18286d478f10)
 
 - **Data Validation:** Ensure data accuracy and completeness with required fields, date restrictions, and card number validation.
 
@@ -100,15 +99,16 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 
     - Virtual Network: Allows for resources to share the same private network namespace
-        - Control Plane Subnet - Private address space for control nodes of AKS cluser
-        - Worker Node Subnet - Private address space for worker nodes of AKS cluser
+        - Control Plane Subnet - Private address space for control nodes of AKS cluster
+        - Worker Node Subnet - Private address space for worker nodes of AKS cluster
 
 
 - **AKS Module:**
     - Resource Group: - Refers to Resource Group created in earlier modules
 
     - AKS: Azure Kubernetes Cluster
-        - Node Pool - Configuration instructions for AKS nodes. (Autoscaling is enabled)
+        - Network_plugin - Set networking configuration, including the CIDR for service pods and an IP within this range for kube-dns
+        - Node Pool - Configuration instructions for AKS nodes. (Autoscaling is enabled by default)
         - Tags - Optional tag(s) for cluster
         - Service Principle - Verification details for Azure
 
