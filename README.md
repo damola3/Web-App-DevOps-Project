@@ -115,7 +115,7 @@ To run the application, you simply need to run the `app.py` script in this repos
 ### <ins>Kubernetes Manifests Deployment<ins>
 The containerised application built in Docker is packed with a Cluster IP configuration, with port 5000 exposed in order to test and validate its deployment.
 
-<ins>**For deployment, the following are recommended:**<ins>
+<ins>**For deployment, the following routing configurations are recommended:**<ins>
 
 - **Nodeport -** This allows connections to individual nodes, via private and/or public networks, of which traffic can then be redirected to any desired endpoint, to be distributed by the service configuration or by a custom load balancing solution. For example, a Robin Hood style configuration can be used to share load balancing service compute amongst nodes.  
 
@@ -125,6 +125,15 @@ The containerised application built in Docker is packed with a Cluster IP config
 
 - **Ingress -** An ingress would be most useful for mutualising hosting, in case there is a desire to integrate routing and load balancing resources with other internal applications.
 
+        Deployment Command:
+
+        kubectl port-forward deployment/inapp-deployment 5000:5000
+
+### <ins>CI/CD Pipeline<ins>
+Disclaimer: This briefly outlines steps taken to build a CI/CD pipeline in Azure DevOps. The application can be deployed across other CI/CD tools such as Jenkins, GitLab CI/CD etc.
+- **Source -** The source-code has been cloned from the following [GitHub repository](https://github.com/damola3/Web-App-DevOps-Project).
+- **Build Pipeline -** A connection has been made to the Docker Hub repository to enable this. Azure CI/CD builds from the dockerfile of the cloned repository and pushes a new build to Docker Hub.
+- **Release Pipeline -** A connection has been made to my AKS cluster to enable this. AKS deploys the manifest file of this Azure DevOps file. Port-forwarding is then used to test that this deployment is in working condition.
 
 ## Contributors 
 
