@@ -15,5 +15,24 @@ steps:
     containerRegistry: 'myApp-Ayo'
     repository: 'daamola3/pipeapp'
     command: 'buildAndPush'
-    Dockerfile: '**/Docker/dockerfile'
+    Dockerfile: '**/App\ Source/dockerfile'
     tags: 'latest'
+
+- task: KubernetesManifest@1
+  inputs:
+    action: 'deploy'
+    connectionType: 'azureResourceManager'
+    azureSubscriptionConnection: 'Jude Everitt Cloud(d55f5fc0-621d-4062-8945-5b228a3d55f3)'
+    azureResourceGroup: 'networking-resource-group'
+    kubernetesCluster: 'terraform-aks-cluster'
+    namespace: 'default'
+    manifests: '**/Kube/application-manifest.yaml'
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'AiCore Web App'
+    repositoryName: 'damola3/Web-App-DevOps-Project'
+    action: 'edit'
+    target: '$(Build.SourceVersion)'
+    tag: 'Update from Pipeline'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
