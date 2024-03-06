@@ -15,5 +15,5 @@ steps:
     containerRegistry: 'myApp-Ayo'
     repository: 'daamola3/pipeapp'
     command: 'buildAndPush'
-    Dockerfile: '**/Docker/dockerfile'
+    Dockerfile: '**/App\ Source/dockerfile'
     tags: 'latest'
