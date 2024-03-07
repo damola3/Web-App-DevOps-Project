@@ -135,6 +135,17 @@ Disclaimer: This briefly outlines steps taken to build a CI/CD pipeline in Azure
 - **Build Pipeline -** A connection has been made to the Docker Hub repository to enable this. Azure CI/CD builds from the dockerfile of the cloned repository and pushes a new build to Docker Hub.
 - **Release Pipeline -** A connection has been made to my AKS cluster to enable this. AKS deploys the manifest file of this Azure DevOps file. Port-forwarding is then used to test that this deployment is in working condition.
 
+### <ins>Monitoring<ins>
+- **Dashboard (Metrics Explorer) -** A dashboard is recommended for monitoring purposes. Below is an example of one made via Azure Metrics Explorer. What matters is that log entries are pinged to a given cloud server for monitoring purposes. Excessive resource usage can dampen the reliability of client workloads and even cause temporary service unavailability. 
+![image](https://github.com/damola3/Web-App-DevOps-Project/assets/108272971/0c22ee54-f61e-489c-8edf-aa9ed2f67263)
+
+- **Logs** - An example of logs for per minute CPU usage (%).
+![image](https://github.com/damola3/Web-App-DevOps-Project/assets/108272971/853fdefa-c001-4606-9593-9ffbac29a8f1)
+
+- **Alerts** - It is recommended that an appropriate API be used to ping a phone or email once usage hits 100% and for automated scripts to be triggered once usage hits given thresholds (e.g. 80%), to auto-provision new resources. It is recommended that during test deployments, real world usage is modelled in peak usage, to collect insights and adapt provisisioning thresholds in such a way that maximises availability and minimises excess provisioning.
+
+
+
 ## Contributors 
 
 - [Maya Iuga]([https://github.com/yourusername](https://github.com/maya-a-iuga))
