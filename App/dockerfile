@@ -7,6 +7,9 @@ WORKDIR /app
 # Step 3 Copy the application files in the container
 COPY . /app
 
+# Export key vault name in deployment
+RUN export KEY_VAULT_NAME="myappayo"
+
 # Install system dependencies and ODBC driver
 RUN apt-get update && apt-get install -y \
     unixodbc unixodbc-dev odbcinst odbcinst1debian2 libpq-dev gcc && \

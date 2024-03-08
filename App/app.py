@@ -9,7 +9,8 @@ import pyodbc
 import os
 
 # Initialising Key Vault Connection
-key_vault_url = "https://myappayo.vault.azure.net/"
+keyVaultName = os.environ["KEY_VAULT_NAME"]
+key_vault_url = "https://{keyVaultName}.vault.azure.net/"
 
 # Set up Azure Key Vault client with Managed Identity
 credential = ManagedIdentityCredential()
