@@ -11,3 +11,4 @@ aks-terraform/.terraform.lock.hcl
 dockerfile:Zone.Identifier
 aks-terraform/test.tfvars
 aks-terraform/aks-cluster-module/.terraform
+azure-pipelines.yml
