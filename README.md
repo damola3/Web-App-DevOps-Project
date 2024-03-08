@@ -7,6 +7,7 @@ Welcome to the Web App DevOps Project repo! This application allows you to effic
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Technology Stack](#technology-stack)
+- [Architecture](#architecture)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -144,7 +145,14 @@ Disclaimer: This briefly outlines steps taken to build a CI/CD pipeline in Azure
 
 - **Alerts** - It is recommended that an appropriate API be used to ping a phone or email once usage hits 100% and for automated scripts to be triggered once usage hits given thresholds (e.g. 80%), to auto-provision new resources. It is recommended that during test deployments, real world usage is modelled in peak usage, to collect insights and adapt provisisioning thresholds in such a way that maximises availability and minimises excess provisioning.
 
+### <ins>Secrets<ins>
+**Azure Key Vault** has been setup in the Python script using an Azure Entra identity & its API. Azure's web server is pinged to retrieve secrets for database login on the web server.
 
+
+Note: Given the use of managed identities, the script above only works with authenticated devices, meaning that Cloud Shell or Azure App Service would be ideal test environments.
+
+## Architecture
+![DevOps Pipeline Architecture](https://github.com/damola3/Web-App-DevOps-Project/assets/108272971/38fb1740-9761-42b5-b8bb-50ce1de5b05a)
 
 ## Contributors 
 
