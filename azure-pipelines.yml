@@ -27,12 +27,3 @@ steps:
     kubernetesCluster: 'terraform-aks-cluster'
     namespace: 'default'
     manifests: '**/Kube/application-manifest.yaml'
-- task: GitHubRelease@1
-  inputs:
-    gitHubConnection: 'AiCore Web App'
-    repositoryName: 'damola3/Web-App-DevOps-Project'
-    action: 'edit'
-    target: '$(Build.SourceVersion)'
-    tag: 'Update from Pipeline'
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
